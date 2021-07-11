@@ -15,12 +15,11 @@ const images = [
 
 const ulImagesEl = document.querySelector('ul#gallery');
 
-images.forEach(element =>
-  ulImagesEl.insertAdjacentHTML(
-    'beforeend',
-    `<li><img src="${element.url}" alt="${element.alt}" height=240></li>`,
-  ),
-);
+const itemsEl = images.map(element => {
+  return `<li><img src ="${element.url}" alt="${element.alt}" height=240/></li>`;
+});
+
+ulImagesEl.insertAdjacentHTML('afterbegin', itemsEl.join(' '));
 
 /*Задание 3
 Напиши скрипт для создания галлереи изображений по массиву данных.
